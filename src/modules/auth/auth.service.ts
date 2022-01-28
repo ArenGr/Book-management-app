@@ -26,7 +26,7 @@ export class AuthService {
     }
 
     // tslint:disable-next-line: no-string-literal
-    const { password, createdAt, updatedAt, ...result } = author['dataValues'];
+    const { password, ...result } = author['dataValues'];
     return result;
   }
 
