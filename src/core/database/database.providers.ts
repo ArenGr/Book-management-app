@@ -3,7 +3,7 @@ import { SEQUELIZE, DEVELOPMENT, TEST, PRODUCTION } from '../constants';
 import { databaseConfig } from './database.config';
 
 import { Author } from '../../modules/authors/author.entity';
-// import { Post } from '../../modules/posts/post.entity';
+import {Book} from "../../modules/books/book.entity";
 
 export const databaseProviders = [{
   provide: SEQUELIZE,
@@ -23,7 +23,7 @@ export const databaseProviders = [{
         config = databaseConfig.development;
     }
     const sequelize = new Sequelize(config);
-    sequelize.addModels([Author]);
+    sequelize.addModels([Author, Book]);
     await sequelize.sync();
     return sequelize;
   },

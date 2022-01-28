@@ -5,6 +5,7 @@ import { DatabaseModule } from './core/database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthorsModule } from './modules/authors/authors.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { BooksModule } from './modules/books/books.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { AuthModule } from './modules/auth/auth.module';
     ConfigModule.forRoot({ isGlobal: true }),
     AuthorsModule,
     AuthModule,
+    BooksModule,
   ],
   controllers: [AppController],
   providers: [AppService],

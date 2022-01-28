@@ -11,7 +11,6 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(authorname: string, password: string): Promise<any> {
-    console.log(authorname, "ccccccc");
     const author = await this.authService.validateAuthor(authorname, password);
     if (!author) {
       throw new UnauthorizedException('Invalid author credentials');

@@ -26,14 +26,12 @@ export class AuthService {
     }
 
     // tslint:disable-next-line: no-string-literal
-    const { password, ...result } = author['dataValues'];
+    const { password, createdAt, updatedAt, ...result } = author['dataValues'];
     return result;
   }
 
   public async login(author) {
-    console.log(author);
     const token = await this.generateToken(author);
-    console.log(author, "sssssss");
     return { author, token };
   }
 

@@ -10,7 +10,6 @@ export class DoesAuthorExist implements CanActivate {
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
-    console.log("dddddd");
     const request = context.switchToHttp().getRequest();
     return this.validateRequest(request);
   }
