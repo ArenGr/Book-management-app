@@ -1,74 +1,84 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+# Book management app (nestjs, postgresql, sequilize)
+This is an example of how you may give instructions on setting up this project locally. 
+To get a local copy up and running follow these simple example steps.
 
 ## Installation
 
-```bash
-$ npm install
+1. Clone the repo :
+
+   ```sh
+   git clone https://github.com/ArenGr/Book-management-app 
+   ```
+2. Move into Book-management-app
+
+    ```sh
+    cd Book-management-app
+    ```
+3. Run npm install
+    ```sh
+    npm install
+    ```
+4. Set up your [PostgreSQL](https://www.postgresql.org/) database
+   
+5. Copy content from **.env.example** to **.env** and populate the required parameters
+
+    ```sh
+    cp .env.example .env
+    ```
+6. Run 
+    ```sh
+    npm run start:dev
+    ```
+### Let’s try it out…
+Open your Postman application and make sure it's running.
+
+#### Signup
+
+Send a POST request to http://localhost:3000/api/v1/auth/signup and input your body data to create a user. You should get a token and the user object returned.
+
+![image](https://user-images.githubusercontent.com/47744223/151629332-3a7d396b-1f7a-4894-8c6f-1e907f126796.png)
+
+
+#### Signin
+
+Send a POST request to http://localhost:3000/api/v1/auth/login and input just your username and password. You should get a token and the user object returned.
+![image](https://user-images.githubusercontent.com/47744223/151629570-4580f0e1-ec67-47cc-8238-b0f0b4cbf91d.png)
+
+
+#### Create a Book
+```diff
+-This route is protected, so it can't be accessed without the token.
 ```
 
-## Running the app
+![image](https://user-images.githubusercontent.com/47744223/151629749-95b94e0f-37a2-4032-b1fa-6edb300ff7fc.png)
 
-```bash
-# development
-$ npm run start
 
-# watch mode
-$ npm run start:dev
+#### Get a single Book
 
-# production mode
-$ npm run start:prod
+![image](https://user-images.githubusercontent.com/47744223/151629892-dbd7b26e-76c4-4c50-a5cb-886cc78dd0e0.png)
+
+
+#### Get all Books
+
+![image](https://user-images.githubusercontent.com/47744223/151630067-436b8dba-e5d1-41f6-a301-33deb6d70d80.png)
+
+
+#### Update a Single Book
+```diff
+-This route is protected, so it can't be accessed without the token.
 ```
 
-## Test
+![image](https://user-images.githubusercontent.com/47744223/151630242-a7520951-8e87-4a9a-91fc-298c2f5b5d57.png)
 
-```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+#### Delete a Book
+```diff
+-This route is protected, so it can't be accessed without the token. Only the creator can delete it.
 ```
 
-## Support
+![image](https://user-images.githubusercontent.com/47744223/151630351-ba4e5dad-7a28-43b9-ab88-f47eee0956c5.png)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
 
-Nest is [MIT licensed](LICENSE).
-# Book-management-app
