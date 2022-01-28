@@ -32,16 +32,15 @@ export class BooksController {
     @UseGuards(AuthGuard('jwt'))
     @Post()
     async create(@Body() book: BookDto, @Request() req): Promise<BookEntity> {
-        console.log(req.user)
         // create a new book and return the newly created book
-        return await this.bookService.create(book, req.author.id);
+        return await this.bookService.create(book, req.user.id);
     }
 
     @UseGuards(AuthGuard('jwt'))
     @Put(':id')
     async update(@Param('id') id: number, @Body() book: BookDto, @Request() req): Promise<BookEntity> {
         // get the number of row affected and the updated book
-        const { numberOfAffectedRows, updatedBook } = await this.bookService.update(id, book, req.author.id);
+        const { numberOfAffectedRows, updatedBook } = await this.bookService.update(id, book, req.user.id);
 
         // if the number of row affected is zero, it means the book doesn't exist in our db
         if (numberOfAffectedRows === 0) {
@@ -56,7 +55,7 @@ export class BooksController {
     @Delete(':id')
     async remove(@Param('id') id: number, @Request() req) {
         // delete the book with this id
-        const deleted = await this.bookService.delete(id, req.author.id);
+        const deleted = await this.bookService.delete(id, req.user.id);
 
         // if the number of row affected is zero, then the book doesn't exist in our db
         if (deleted === 0) {

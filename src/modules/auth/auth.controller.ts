@@ -11,8 +11,8 @@ export class AuthController {
 
   @UseGuards(AuthGuard('local'))
   @Post('login')
-  async login(@Body() author) {
-    return await this.authService.login(author);
+  async login(@Request() req) {
+    return await this.authService.login(req.user);
   }
 
   @UseGuards(DoesAuthorExist)
